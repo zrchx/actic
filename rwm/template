@@ -1,0 +1,14 @@
+pkgname=rwm
+version=0.1
+revision=1
+build_style=gnu-makefile
+makedepends="libX11-devel"
+short_desc="A really minimal wm"
+maintainer="Zrchx <zrchx@gmail.com>"
+license="custom:Unlicense"
+homepage="https://github.com/zrchx/rouge"
+distfiles="https://github.com/zrchx/rouge/archive/${version}.tar.gz"
+
+post_install() {
+	vlicense LICENSE
+}

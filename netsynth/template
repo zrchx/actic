@@ -1,0 +1,18 @@
+pkgname=st
+version=0.9
+revision=1
+build_style=gnu-makefile
+make_use_env=compliant
+hostmakedepends="pkg-config"
+makedepends="fontconfig-devel libX11-devel libXft-devel"
+depends="ncurses st-terminfo-${version}_${revision}"
+short_desc="Simple terminal implementation for X"
+maintainer="meator <meator.dev@gmail.com>"
+license="MIT"
+homepage="https://st.suckless.org"
+distfiles="https://dl.suckless.org/${pkgname}/${pkgname}-${version}.tar.gz"
+checksum=f36359799734eae785becb374063f0be833cf22f88b4f169cd251b99324e08e7
+
+post_install() {
+	vlicense LICENSE
+}

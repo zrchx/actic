@@ -1,0 +1,25 @@
+pkgname=base-custom
+version=0.1
+revision=1
+build_style=meta
+short_desc="My persol base minimal in voidlinux"
+maintainer="Zrchx <epsilonrf0@gmail.com>"
+license="custom:Unlicense"
+homepage="https://www.voidlinux.org"
+
+depends="
+ base-files coreutils findutils diffutils bash grep gzip 
+ sed gawk util-linux which tar shadow procps-ng iana-etc 
+ xbps bat sudo less man-pages xorg-minimal NetworkManager
+ iputils procps-ng pciutils openssh iproute2 kmod kdb zip
+ e2fsprogs gdb shadow tzdata runit-void removed-packages
+ base-devel"
+
+case "$XBPS_TARGET_MACHINE" in
+	*-musl) depends+=" musl";;
+	*) depends+=" glibc-locales";;
+esac
+
+case "$XBPS_TARGET_MACHINE" in
+	i686*|x86_64*|ppc*) depends+=" linux";;
+esac
